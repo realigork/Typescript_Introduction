@@ -12,8 +12,8 @@ var __extends = (this && this.__extends) || (function () {
 // Exercise 1 - How was your TypeScript Class?
 var Car = /** @class */ (function () {
     function Car(name) {
-        this.name = name;
         this.acceleration = 0;
+        this.name = name;
     }
     Car.prototype.honk = function () {
         console.log("Toooooooooot!");
@@ -31,25 +31,25 @@ car.accelerate(10);
 console.log(car.acceleration);
 // Exercise 2 - Two objects, based on each other ...
 var BaseObject = /** @class */ (function () {
-    function BaseObject(width, length) {
+    function BaseObject() {
         this.width = 0;
         this.length = 0;
-        this.width = width;
-        this.length = length;
     }
     return BaseObject;
 }());
 var Rectangle = /** @class */ (function (_super) {
     __extends(Rectangle, _super);
-    function Rectangle(width, length) {
-        return _super.call(this, width, length) || this;
+    function Rectangle() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     Rectangle.prototype.calcSize = function () {
         return this.width * this.length;
     };
     return Rectangle;
 }(BaseObject));
-var rectangle = new Rectangle(5, 2);
+var rectangle = new Rectangle();
+rectangle.width = 5;
+rectangle.length = 2;
 console.log(rectangle.calcSize());
 // Exercise 3 - Make sure to compile to ES5 (set the target in tsconfig.json)
 var NewPerson = /** @class */ (function () {

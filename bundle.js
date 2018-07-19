@@ -1,4 +1,3 @@
-"use strict";
 var MyMath;
 (function (MyMath) {
     var PI = 3.14;
@@ -6,9 +5,11 @@ var MyMath;
         return diameter * PI;
     }
     MyMath.calcCircumference = calcCircumference;
+})(MyMath || (MyMath = {}));
+var MyMath;
+(function (MyMath) {
     function calcRectangle(width, length) {
         return width * length;
     }
     MyMath.calcRectangle = calcRectangle;
 })(MyMath || (MyMath = {}));
-console.log(MyMath.calcRectangle(10, 20));
